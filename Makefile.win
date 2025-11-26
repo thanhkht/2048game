@@ -1,0 +1,49 @@
+# Project: SDL
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = Ltexture.o Logic.o Tile.o Event.o SDLINIT.o Media.o Global.o main.o
+LINKOBJ  = Ltexture.o Logic.o Tile.o Event.o SDLINIT.o Media.o Global.o main.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -L"D:/SDL2/lib" -L"D:/SDL2/lib/lib" -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/SDL2/include" -I"D:/SDL2/include/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++" -I"D:/SDL2/include" -I"D:/SDL2/include/include"
+BIN      = SDL.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+Ltexture.o: Ltexture.cpp
+	$(CPP) -c Ltexture.cpp -o Ltexture.o $(CXXFLAGS)
+
+Logic.o: Logic.cpp
+	$(CPP) -c Logic.cpp -o Logic.o $(CXXFLAGS)
+
+Tile.o: Tile.cpp
+	$(CPP) -c Tile.cpp -o Tile.o $(CXXFLAGS)
+
+Event.o: Event.cpp
+	$(CPP) -c Event.cpp -o Event.o $(CXXFLAGS)
+
+SDLINIT.o: SDLINIT.cpp
+	$(CPP) -c SDLINIT.cpp -o SDLINIT.o $(CXXFLAGS)
+
+Media.o: Media.cpp
+	$(CPP) -c Media.cpp -o Media.o $(CXXFLAGS)
+
+Global.o: Global.cpp
+	$(CPP) -c Global.cpp -o Global.o $(CXXFLAGS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
